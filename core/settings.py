@@ -28,8 +28,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Third party apps
     'crispy_forms',
+    'crispy_bootstrap5',
     # My apps
     'accounts',
+    'doctor',
 ]
 
 MIDDLEWARE = [
@@ -56,8 +58,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
-            'libraries': {
-            },
+            'libraries': {},
         },
     },
 ]

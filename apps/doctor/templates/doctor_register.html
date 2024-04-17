@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'accounts/css/accounts.css' %}">
+    <link rel="stylesheet" href="{% static 'doctor/css/doctor_register.css' %}">
+{% endblock head %}
+
+
+{% block body %}
+
+    <div class="container">
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-md-8">
+
+                <h3 class="p-bold">
+                    Olá, <span class="color-dark">{{ request.user.username }}</span>
+                </h3>
+                <h4 class="p-bold">Vamos realizar seu cadastro médico legal.</h4>
+                {% include 'partials/messages.html' %}
+                <br>
+
+                {% crispy doctor_register_form doctor_register_form.helper %}
+
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+
+    </div>
+    <script>
+        document.getElementById('id_zip_code').addEventListener('input', function() {
+            let zipCode = this.value.replace(/\D/g, '');
+
+            if (zipCode.length === 8) {
+                fetch(`https://viacep.com.br/ws/${zipCode}/json/`)
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('id_street').value = data.logradouro;
+                        document.getElementById('id_neighborhood').value = data.bairro;
+                    })
+                    .catch(error => console.error('Erro ao obter o CEP:', error));
+            }
+        });
+        document.getElementById('id_zip_code').addEventListener('input', function() {
+            let cep = this.value.replace(/\D/g, ''); // Remove caracteres não numéricos
+
+            if (cep.length >= 5) {
+                cep = cep.replace(/^(\d{5})(\d{0,3})/, '$1-$2'); // Insere o hífen após o quinto dígito
+            }
+
+            this.value = cep; // Atualiza o valor do campo
+        });
+    </script>
+
+{% endblock body %}

@@ -21,3 +21,7 @@
 .color-dark {
     color: var(--dark-color);
 }
+
+.asteriskField {
+    display: none;
+}

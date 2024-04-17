@@ -3,9 +3,6 @@
 {% load i18n %}
 {% load crispy_forms_tags %}
 
-{% block title %}
-    {% trans 'Register' %}
-{% endblock title %}
 
 {% block head %}
     <link rel="stylesheet" href="{% static 'accounts/css/accounts.css' %}">
@@ -21,17 +18,22 @@
                     <br>
                     <section class="cont-logo">
                         <img class="logo" src="{% static 'general/img/logo.png' %}">
-                        <label class="text-logo">{% trans 'HEALING' %}</label>
+                        <label class="text-logo">HEALING</label>
                     </section>
                     <hr>
-                    <h2 class="fonte-destaque1 mb-3">Cadastre-se</h2>
-                    {% crispy register_form register_form.helper %}
+                    {% include 'partials/messages.html' %}
+
+                    <h2 class="fonte-destaque1 mb-3">Logar</h2>
+                    {% crispy login_form login_form.helper %}
                 </div>
 
             </div>
             <div class="col-md bg-main d-flex justify-content-center align-items-center">
                 <img src="{% static 'accounts/img/ilustration.png' %}" alt="">
+
+
             </div>
         </div>
     </div>
+
 {% endblock body %}
