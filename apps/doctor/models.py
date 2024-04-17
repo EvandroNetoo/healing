@@ -58,3 +58,18 @@ class DoctorData(models.Model):
 
     def __str__(self):
         return self.user.username
+
+
+class OpenedDate(models.Model):
+    date = models.DateTimeField(_('date'))
+    user = models.ForeignKey(
+        User, on_delete=models.DO_NOTHING, verbose_name=_('user')
+    )
+    scheduled = models.BooleanField(verbose_name=_('scheduled'), default=False)
+
+    def __str__(self):
+        return f'{self.date}'
+
+    class Meta:
+        verbose_name = _('opened date')
+        verbose_name_plural = _('opened dates')

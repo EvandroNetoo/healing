@@ -52,3 +52,15 @@ class User(AbstractBaseUser, PermissionsMixin):
     def get_full_name(self):
         full_name = f'{self.name} {self.surname}'
         return full_name.strip()
+
+    @property
+    def is_doctor(self):
+        DoctorData = apps.get_model('doctor', 'DoctorData')
+        return DoctorData.objects.filter(user=self).exists()
+
+    @property
+    def doctor_data(self):
+        DoctorData = apps.get_model('doctor', 'DoctorData')
+        return (
+            None if not self.is_doctor else DoctorData.objects.get(user=self)
+        )

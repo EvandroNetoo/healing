@@ -19,9 +19,9 @@
             <div class="col-md-8">
 
                 <h3 class="p-bold">
-                    Olá, <span class="color-dark">{{ request.user.username }}</span>
+                    {% trans 'Hello,' %} <span class="color-dark">{{ request.user.username }}</span>
                 </h3>
-                <h4 class="p-bold">Vamos realizar seu cadastro médico legal.</h4>
+                <h4 class="p-bold">{% trans "Let's complete your medical legal registration" %}</h4>
                 {% include 'partials/messages.html' %}
                 <br>
 

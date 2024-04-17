@@ -40,7 +40,9 @@ class HtmxBaseView(View):
         if not remember_me:
             request.session.set_expiry(0)
 
-        return self.htmx_redirect('feed')
+        if user.is_doctor:
+            return self.htmx_redirect('open_schedule')
+        return self.htmx_redirect('doctor_register')
 
 
 class RegisterView(HtmxBaseView):
