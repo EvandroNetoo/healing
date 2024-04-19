@@ -1,0 +1,564 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-19 14:30+0000\n"
+"PO-Revision-Date: 2024-04-19 14:30-0300\n"
+"Last-Translator: YOUR NAME <YOUR EMAIL>\n"
+"Language-Team: Portuguese (Brazil) <YOUR LANGUAGE TEAM EMAIL>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: apps/accounts/admin/admin.py:27 apps/accounts/admin/admin.py:58
+msgid "Login informations"
+msgstr "Informações de login"
+
+#: apps/accounts/admin/admin.py:37
+msgid "Permissions"
+msgstr "Permissões"
+
+#: apps/accounts/admin/admin.py:47
+msgid "Important dates"
+msgstr "Datas importantes"
+
+#: apps/accounts/decorators.py:13
+msgid "To access this page you need to be a doctor."
+msgstr "Para acessar esta página, você precisa ser um médico."
+
+#: apps/accounts/decorators.py:27
+msgid "You have already completed your medical registration."
+msgstr "Você já concluiu seu registro médico."
+
+#: apps/accounts/forms.py:15
+msgid "Password"
+msgstr "Senha"
+
+#: apps/accounts/forms.py:21
+msgid "Confirm password"
+msgstr "Confirmar senha"
+
+#: apps/accounts/forms.py:30
+msgid "Passwords does not match."
+msgstr "As senhas não coincidem."
+
+#: apps/accounts/forms.py:40 apps/accounts/forms.py:99
+msgid "Remember me?"
+msgstr "Lembrar-me?"
+
+#: apps/accounts/forms.py:60 apps/accounts/forms.py:119 apps/doctor/forms.py:39
+msgid "Submit"
+msgstr "Enviar"
+
+#: apps/accounts/forms.py:150
+msgid "Sorry, your password was incorrect."
+msgstr "Desculpe, sua senha estava incorreta."
+
+#: apps/accounts/models.py:26
+msgid "email"
+msgstr "e-mail"
+
+#: apps/accounts/models.py:31
+msgid "username"
+msgstr "nome de usuário"
+
+#: apps/accounts/models.py:37
+msgid "active"
+msgstr "ativo"
+
+#: apps/accounts/models.py:38
+msgid "staff status"
+msgstr "status de funcionário"
+
+#: apps/accounts/models.py:39
+msgid "super user status"
+msgstr "status de super usuário"
+
+#: apps/accounts/models.py:40
+msgid "date joined"
+msgstr "data de entrada"
+
+#: apps/accounts/models.py:49 apps/doctor/models.py:78
+msgid "user"
+msgstr "usuário"
+
+#: apps/accounts/models.py:50
+msgid "users"
+msgstr "usuários"
+
+#: apps/accounts/templates/login.html:24
+msgid "Login"
+msgstr "Login"
+
+#: apps/accounts/templates/register.html:7
+msgid "Register"
+msgstr "Registrar"
+
+#: apps/accounts/templates/register.html:27
+msgid "Sign Up"
+msgstr "Inscrever-se"
+
+#: apps/accounts/validators.py:7
+msgid ""
+"This field should contain only lowercase letters, numbers, \".\", and \"_\"."
+msgstr ""
+"Este campo deve conter apenas letras minúsculas, números, \".\" e \"_\"."
+
+#: apps/doctor/forms.py:94 apps/doctor/templates/doctor_appointment.html:89
+msgid "Save"
+msgstr "Salvar"
+
+#: apps/doctor/forms.py:109
+msgid "The date must be greater than or equal to the current date."
+msgstr "A data deve ser maior ou igual à data atual."
+
+#: apps/doctor/models.py:12 apps/doctor/models.py:53
+msgid "Specialty"
+msgstr "Especialidade"
+
+#: apps/doctor/models.py:14
+msgid "Icon"
+msgstr "Ícone"
+
+#: apps/doctor/models.py:18
+msgid "specialty"
+msgstr "especialidade"
+
+#: apps/doctor/models.py:19
+msgid "specialties"
+msgstr "especialidades"
+
+#: apps/doctor/models.py:26
+msgid "CRM"
+msgstr "CRM"
+
+#: apps/doctor/models.py:27
+msgid "Name"
+msgstr "Nome"
+
+#: apps/doctor/models.py:29
+msgid "Zip Code"
+msgstr "CEP"
+
+#: apps/doctor/models.py:33
+msgid "Street"
+msgstr "Rua"
+
+#: apps/doctor/models.py:34
+msgid "Neighborhood"
+msgstr "Bairro"
+
+#: apps/doctor/models.py:35
+msgid "Number"
+msgstr "Número"
+
+#: apps/doctor/models.py:36
+msgid "RG"
+msgstr "RG"
+
+#: apps/doctor/models.py:38
+msgid "Digital CRM"
+msgstr "CRM Digital"
+
+#: apps/doctor/models.py:41
+msgid "Photo"
+msgstr "Foto"
+
+#: apps/doctor/models.py:45
+msgid "User"
+msgstr "Usuário"
+
+#: apps/doctor/models.py:47
+msgid "Description"
+msgstr "Descrição"
+
+#: apps/doctor/models.py:55
+msgid "Consultation Fee"
+msgstr "Taxa de Consulta"
+
+#: apps/doctor/models.py:58
+msgid "doctor data"
+msgstr "dados do médico"
+
+#: apps/doctor/models.py:59
+msgid "doctors data"
+msgstr "dados dos médicos"
+
+#: apps/doctor/models.py:76
+msgid "date"
+msgstr "data"
+
+#: apps/doctor/models.py:80
+msgid "scheduled"
+msgstr "agendado"
+
+#: apps/doctor/models.py:86
+msgid "opened date"
+msgstr "data de abertura"
+
+#: apps/doctor/models.py:87
+msgid "opened dates"
+msgstr "datas de abertura"
+
+#: apps/doctor/templates/doctor_appointment.html:24
+msgid "Appointment canceled"
+msgstr "Consulta cancelada"
+
+#: apps/doctor/templates/doctor_appointment.html:26
+msgid "Appointment Finished"
+msgstr "Consulta Finalizada"
+
+#: apps/doctor/templates/doctor_appointment.html:29
+msgid "Consultation initiated, access the link immediately!"
+msgstr "Consulta iniciada, acesse o link imediatamente!"
+
+#: apps/doctor/templates/doctor_appointment.html:43
+#: apps/doctor/templates/doctor_appointments.html:34
+msgid "Patient"
+msgstr "Paciente"
+
+#: apps/doctor/templates/doctor_appointment.html:55
+msgid "Appointment scheduled"
+msgstr "Consulta agendada"
+
+#: apps/doctor/templates/doctor_appointment.html:60
+msgid "Appointment done"
+msgstr "Consulta realizada"
+
+#: apps/doctor/templates/doctor_appointment.html:65
+msgid "Appointment rated"
+msgstr "Consulta Avaliada"
+
+#: apps/doctor/templates/doctor_appointment.html:70
+msgid "Consultation details"
+msgstr "Detalhes da consulta"
+
+#: apps/doctor/templates/doctor_appointment.html:74
+#: apps/patient/templates/patient_appointment.html:72
+msgid "Add to your calendar!"
+msgstr "Adicione ao seu calendário!"
+
+#: apps/doctor/templates/doctor_appointment.html:76
+msgid "How to access?"
+msgstr "Como acessar?"
+
+#: apps/doctor/templates/doctor_appointment.html:77
+msgid "Add the Google Meet link to start the consultation"
+msgstr "Adicione o link do Google Meet para iniciar a consulta"
+
+#: apps/doctor/templates/doctor_appointment.html:84
+msgid "Link"
+msgstr "Link"
+
+#: apps/doctor/templates/doctor_appointment.html:101
+msgid "Patient Documents"
+msgstr "Documentos do paciente"
+
+#: apps/doctor/templates/doctor_appointment.html:109
+msgid "Title"
+msgstr "Título"
+
+#: apps/doctor/templates/doctor_appointment.html:126
+msgid "Finish consultation"
+msgstr "Finalizar consulta"
+
+#: apps/doctor/templates/doctor_appointments.html:28
+msgid "Today"
+msgstr "Hoje"
+
+#: apps/doctor/templates/doctor_appointments.html:35
+#: apps/doctor/templates/doctor_appointments.html:65
+#: apps/patient/templates/my_appointments.html:56
+msgid "Status"
+msgstr "Status"
+
+#: apps/doctor/templates/doctor_appointments.html:36
+#: apps/doctor/templates/doctor_appointments.html:66
+#: apps/patient/templates/my_appointments.html:57
+msgid "Date"
+msgstr "Data"
+
+#: apps/doctor/templates/doctor_appointments.html:58
+msgid "Remaining"
+msgstr "Restante"
+
+#: apps/doctor/templates/doctor_appointments.html:64
+msgid "Patients"
+msgstr "Pacientes"
+
+#: apps/doctor/templates/doctor_register.html:22
+#: apps/doctor/templates/open_schedule.html:30
+#: apps/patient/templates/home.html:26
+msgid "Hello,"
+msgstr "Olá,"
+
+#: apps/doctor/templates/doctor_register.html:24
+msgid "Let's complete your medical legal registration"
+msgstr "Vamos completar seu registro médico legal"
+
+#: apps/doctor/templates/open_schedule.html:8
+msgid "Open Schedule"
+msgstr "Agenda Aberta"
+
+#: apps/doctor/templates/open_schedule.html:36
+msgid "Open appointment schedule."
+msgstr "Abrir agenda de consultas."
+
+#: apps/doctor/templates/open_schedule.html:43
+msgid "Your schedules"
+msgstr "Suas agendas"
+
+#: apps/doctor/validators.py:6
+msgid "Enter a valid ZIP code in the format XXXXX-XXX."
+msgstr "Digite um CEP válido no formato XXXXX-XXX."
+
+#: apps/doctor/views.py:116
+msgid "This appointment has already been canceled, you cannot start it."
+msgstr "Esta consulta já foi cancelada, você não pode iniciá-la."
+
+#: apps/doctor/views.py:124
+msgid "This appointment has already been finished, you cannot start it."
+msgstr "Esta consulta já foi finalizada, você não pode iniciá-la."
+
+#: apps/doctor/views.py:134
+msgid "Consultation started successfully."
+msgstr "Consulta iniciada com sucesso."
+
+#: apps/doctor/views.py:144
+msgid "This is not your appointment!"
+msgstr "Esta não é sua consulta!"
+
+#: apps/doctor/views.py:153
+msgid "Add the document."
+msgstr "Adicione o documento."
+
+#: apps/doctor/views.py:164
+msgid "Document sent successfully!"
+msgstr "Documento enviado com sucesso!"
+
+#: apps/patient/models.py:10
+msgid "Scheduled"
+msgstr "Agendado"
+
+#: apps/patient/models.py:11
+msgid "Finished"
+msgstr "Finalizado"
+
+#: apps/patient/models.py:12
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#: apps/patient/models.py:13
+msgid "Started"
+msgstr "Iniciado"
+
+#: apps/patient/models.py:16
+msgid "patient"
+msgstr "paciente"
+
+#: apps/patient/models.py:19
+msgid "opened_date"
+msgstr "data de abertura"
+
+#: apps/patient/models.py:22
+msgid "status"
+msgstr "status"
+
+#: apps/patient/models.py:27
+msgid "link"
+msgstr "link"
+
+#: apps/patient/models.py:30 apps/patient/models.py:38
+msgid "appointment"
+msgstr "consulta"
+
+#: apps/patient/models.py:31
+msgid "appointments"
+msgstr "consultas"
+
+#: apps/patient/models.py:39
+msgid "title"
+msgstr "título"
+
+#: apps/patient/models.py:40 apps/patient/models.py:46
+msgid "document"
+msgstr "documento"
+
+#: apps/patient/models.py:47
+msgid "documents"
+msgstr "documentos"
+
+#: apps/patient/templates/home.html:32
+msgid "Search for professionals ..."
+msgstr "Busque por profissionais ..."
+
+#: apps/patient/templates/home.html:44
+msgid "filter"
+msgstr "filtro"
+
+#: apps/patient/templates/home.html:60
+#: apps/patient/templates/my_appointments.html:64
+#: apps/patient/templates/patient_appointment.html:29
+msgid "Dr."
+msgstr "Dr."
+
+#: apps/patient/templates/home.html:69
+msgid "Next date:"
+msgstr "Próxima data:"
+
+#: apps/patient/templates/home.html:73
+msgid "Awaiting a date."
+msgstr "Aguardando data."
+
+#: apps/patient/templates/home.html:78
+msgid "Schedule"
+msgstr "Agendar"
+
+#: apps/patient/templates/home.html:87
+msgid "Reminders"
+msgstr "Lembretes"
+
+#: apps/patient/templates/home.html:90
+msgid "Appointment with Pedro Sampario in 7 days."
+msgstr "Consulta com Pedro Sampario em 7 dias."
+
+#: apps/patient/templates/my_appointments.html:22 templates/base.html:74
+msgid "Your Appointments"
+msgstr "Suas Consultas"
+
+#: apps/patient/templates/my_appointments.html:32
+msgid "Medical Specialties"
+msgstr "Especialidades Médicas"
+
+#: apps/patient/templates/my_appointments.html:39
+msgid "Appointment Date"
+msgstr "Data da Consulta"
+
+#: apps/patient/templates/my_appointments.html:44
+msgid "Filter"
+msgstr "Filtrar"
+
+#: apps/patient/templates/my_appointments.html:55
+msgid "Doctor"
+msgstr "Médico"
+
+#: apps/patient/templates/patient_appointment.html:37
+#, fuzzy
+#| msgid "Consultation Fee"
+msgid "Consultation canceled"
+msgstr "Taxa de Consulta"
+
+#: apps/patient/templates/patient_appointment.html:39
+#, fuzzy
+#| msgid "Consultation Fee"
+msgid "Consultation Completed"
+msgstr "Taxa de Consulta"
+
+#: apps/patient/templates/patient_appointment.html:42
+#, fuzzy
+#| msgid "Consultation initiated, access the link immediately!"
+msgid "Consultation initialized, access the link immediately!"
+msgstr "Consulta iniciada, acesse o link imediatamente!"
+
+#: apps/patient/templates/patient_appointment.html:50
+#, fuzzy
+#| msgid "Finish consultation"
+msgid "Scheduled consultation"
+msgstr "Finalizar consulta"
+
+#: apps/patient/templates/patient_appointment.html:55
+#, fuzzy
+#| msgid "Consultation Fee"
+msgid "Consultation conducted"
+msgstr "Taxa de Consulta"
+
+#: apps/patient/templates/patient_appointment.html:60
+#, fuzzy
+#| msgid "Consultation Fee"
+msgid "Consultation Evaluated"
+msgstr "Taxa de Consulta"
+
+#: apps/patient/templates/patient_appointment.html:65
+#, fuzzy
+#| msgid "Consultation details"
+msgid "Consultation Details"
+msgstr "Detalhes da consulta"
+
+#: apps/patient/templates/patient_appointment.html:74
+#, fuzzy
+#| msgid "How to access?"
+msgid "How to access ?"
+msgstr "Como acessar?"
+
+#: apps/patient/templates/patient_appointment.html:75
+msgid "At the scheduled time of the consultation, access the link below"
+msgstr ""
+
+#: apps/patient/templates/patient_appointment.html:80
+#: apps/patient/templates/patient_appointment.html:83
+#, fuzzy
+#| msgid "Finish consultation"
+msgid "Access consultation"
+msgstr "Finalizar consulta"
+
+#: apps/patient/templates/patient_appointment.html:89
+#, fuzzy
+#| msgid "documents"
+msgid "My documents"
+msgstr "documentos"
+
+#: apps/patient/views.py:74
+msgid "Successfully scheduled appointment."
+msgstr "Successfully scheduled appointment."
+
+#: templates/base.html:50
+msgid "Patient Area"
+msgstr "Área do paciente"
+
+#: templates/base.html:53
+msgid "Home"
+msgstr "Home"
+
+#: templates/base.html:56
+msgid "My Appointments"
+msgstr "Minhas consultas"
+
+#: templates/base.html:68
+msgid "Doctor Area"
+msgstr "Área do médico"
+
+#: templates/base.html:71
+msgid "Open Schedules"
+msgstr "Abrir horários"
+
+#: templates/base.html:80
+msgid "I am a Doctor"
+msgstr "I am a Doctor"
+
+#: utils/validators.py:7
+msgid "This field must not use whitespaces."
+msgstr "This field must not use whitespaces."
+
+#: utils/validators.py:13
+msgid "This field must contain only numbers."
+msgstr "This field must contain only numbers."
+
+#: utils/validators.py:21
+msgid "Use at least 6 characters."
+msgstr "Use at least 6 characters."
+
+#: utils/validators.py:26
+msgid "Use at least 4 characters."
+msgstr "Use at least 4 characters."
+
+#: utils/validators.py:31
+msgid "The field must have 6 numeric digits."
+msgstr "The field must have 6 numeric digits."

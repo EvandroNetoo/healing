@@ -1,7 +1,9 @@
 from django.utils.translation import gettext_lazy as _
+from django.apps import apps
 from django.db import models
 
 from accounts.models import User
+from datetime import datetime
 
 from .validators import cep_validator
 
@@ -58,6 +60,16 @@ class DoctorData(models.Model):
 
     def __str__(self):
         return self.user.username
+
+    def next_schedule(self):
+        OpenedDate = apps.get_model('doctor', 'OpenedDate')
+        return (
+            OpenedDate.objects.filter(user=self.user)
+            .filter(date__gt=datetime.now())
+            .filter(scheduled=False)
+            .order_by('date')
+            .first()
+        )
 
 
 class OpenedDate(models.Model):

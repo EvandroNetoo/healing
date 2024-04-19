@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'doctor/css/open_schedule.css' %}">
+    <link rel="stylesheet" href="{% static 'accounts/css/accounts.css' %}">
+    <link rel="stylesheet" href="{% static 'doctor/css/doctor_register.css' %}">
+    <link rel="stylesheet" href="{% static 'patient/css/home.css' %}">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+{% endblock head %}
+
+
+{% block body %}
+
+    <br>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="{{ doctor_data.photo.url }}" class="foto-perfil-card-lg" alt="">
+                    </div>
+                    <div class="col-md">
+                        <p style="font-size: 20px" class="p-bold">
+                            {% trans 'Dr.' %} {{ doctor_data.name }} <i class="bi bi-patch-check-fill icon-main"></i>
+                        </p>
+                        <p>{{ doctor_data.description }}</p>
+                        <p class="p-bold">{{ appointment.opened_date.date }}</p>
+                    </div>
+                </div>
+                <hr>
+                {% if consulta.status == 'C' %}
+                    <div class="alert alert-danger" role="alert">{% trans 'Consultation canceled' %}</div>
+                {% elif consulta.status == 'F' %}
+                    <div class="alert alert-success" role="alert">{% trans 'Consultation Completed' %}</div>
+                {% elif consulta.status == 'I' %}
+                    <div class="alert alert-primary" role="alert">
+                        {% trans 'Consultation initialized, access the link immediately!' %}
+                    </div>
+                {% endif %}
+                <br>
+                <div class="row">
+                    <div class="col-md">
+
+                        <p>
+                            <i class="color-dark bi bi-check-circle-fill"></i> {% trans 'Scheduled consultation' %}
+                        </p>
+                    </div>
+                    <div class="col-md">
+                        <p>
+                            <i class="{% if appointment.status == 'F' %}color-dark{% endif %} bi bi-check-circle-fill"></i> {% trans 'Consultation conducted' %}
+                        </p>
+                    </div>
+                    <div class="col-md">
+                        <p>
+                            <i class="bi bi-check-circle-fill"></i> {% trans 'Consultation Evaluated' %}
+                        </p>
+                    </div>
+                </div>
+                <hr>
+                <h3 class="p-bold">{% trans 'Consultation Details' %}</h3>
+                <p style="font-size:20px">
+                    <i class="bi bi-calendar3 color-dark"></i>&nbsp {{ appointment.opened_date.date }}
+                </p>
+                <p style="font-size:20px">
+                    <i class="bi bi-tag-fill color-dark"></i></i>&nbsp $ {{ doctor_data.consultation_fee }}
+                </p>
+                <a style="cursor: auto;" class="btn btn-dark-color-outline btn-lg">{% trans 'Add to your calendar!' %}</a>
+                <hr>
+                <h3 class="p-bold">{% trans 'How to access ?' %}</h3>
+                <p>{% trans 'At the scheduled time of the consultation, access the link below' %}</p>
+
+                {% if appointment.status == 'I' and appointment.link %}
+                    <a href="{{ appointment.link }}"
+                       target="_blank"
+                       class="btn btn-success btn-dark-color btn-lg">{% trans 'Access consultation' %}</a>
+                {% else %}
+
+                    <a href="#"  class="btn btn-success btn-dark-color btn-lg disabled">{% trans 'Access consultation' %}</a>
+
+                {% endif %}
+
+
+                <hr>
+                <h3 class="p-bold">{% trans 'My documents' %}</h3>
+                <br>
+                {% for document in documents %}
+                    <a href="{{ document.document.url }}"
+                       target="_blank"
+                       class="link documentos"><i class="bi bi-file-arrow-down"></i> {{ document.title }}</a>
+                {% endfor %}
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
+            <div class="col-md"></div>
+        </div>
+
+    </div>
+
+{% endblock body %}

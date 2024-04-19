@@ -32,11 +32,13 @@ INSTALLED_APPS = [
     # My apps
     'accounts',
     'doctor',
+    'patient',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -78,7 +80,16 @@ DATABASES = {
 
 # Internationalization
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
+
+LANGUAGES = [
+    ('en', 'English'),
+    ('pt', 'Português (Brasil)'),
+]
+
+LOCALE_PATHS = (
+    BASE_DIR / 'locale',
+)
 
 TIME_ZONE = 'UTC'
 

@@ -21,10 +21,10 @@
                     <br>
                     <section class="cont-logo">
                         <img class="logo" src="{% static 'general/img/logo.png' %}">
-                        <label class="text-logo">{% trans 'HEALING' %}</label>
+                        <label class="text-logo">HEALING</label>
                     </section>
                     <hr>
-                    <h2 class="fonte-destaque1 mb-3">Cadastre-se</h2>
+                    <h2 class="fonte-destaque1 mb-3">{% trans 'Sign Up' %}</h2>
                     {% include 'partials/messages.html' %}
                     {% crispy register_form register_form.helper %}
                 </div>

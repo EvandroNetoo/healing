@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,9 +26,10 @@
         {% if user %}
             <nav class="navbar navbar-expand-lg navbar-dark bg-color-dark">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href=" ">
                         <img src="{% static 'general/img/logo.png' %}" width="20%" alt="">
-                    &nbspHEALING</a>
+                        &nbsp;HEALING
+                    </a>
                     <button class="navbar-toggler"
                             type="button"
                             data-bs-toggle="collapse"
@@ -45,13 +47,13 @@
                                    id="navbarDropdownMenuLink"
                                    role="button"
                                    data-bs-toggle="dropdown"
-                                   aria-expanded="false">Área do paciente</a>
+                                   aria-expanded="false">{% trans 'Patient Area' %}</a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <li>
-                                        <a class="dropdown-item" href=" ">Home</a>
+                                        <a class="dropdown-item" href="{% url 'home' %}">{% trans 'Home' %}</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href=" ">Minhas consultas</a>
+                                        <a class="dropdown-item" href="{% url 'my_appointments' %}">{% trans 'My Appointments' %}</a>
                                     </li>
                                 </ul>
                             </li>
@@ -63,19 +65,19 @@
                                        id="navbarDropdownMenuLink"
                                        role="button"
                                        data-bs-toggle="dropdown"
-                                       aria-expanded="false">Área do médico</a>
+                                       aria-expanded="false">{% trans 'Doctor Area' %}</a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                         <li>
-                                            <a class="dropdown-item" href="{% url 'open_schedule' %}">Abrir horários</a>
+                                            <a class="dropdown-item" href="{% url 'open_schedule' %}">{% trans 'Open Schedules' %}</a>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item" href="">Suas consultas</a>
+                                            <a class="dropdown-item" href="{% url 'doctor_appointments' %}">{% trans 'Your Appointments' %}</a>
                                         </li>
                                     </ul>
                                 </li>
                             {% else %}
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'doctor_register' %}">Sou médico</a>
+                                    <a class="nav-link" href="{% url 'doctor_register' %}">{% trans 'I am a Doctor' %}</a>
                                 </li>
                             {% endif %}
                         </ul>
