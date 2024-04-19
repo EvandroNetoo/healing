@@ -19,6 +19,7 @@ mypy-extensions==1.0.0
 pathspec==0.12.1
 pillow==10.3.0
 platformdirs==4.2.0
+psycopg[binary]==3.1.18
 pycodestyle==2.8.0
 pyflakes==2.4.0
 python-decouple==3.8
@@ -28,4 +29,4 @@ six==1.16.0
 sqlparse==0.5.0
 tomli==2.0.1
 tqdm==4.66.2
-tzdata==2024.1
+typing_extensions==4.11.0

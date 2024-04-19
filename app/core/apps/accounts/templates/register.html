@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    {% trans 'Register' %}
+{% endblock title %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'accounts/css/accounts.css' %}">
+{% endblock head %}
+
+{% block body %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md d-flex justify-content-center">
+                <div class="cont-cadastro">
+                    <br>
+                    <br>
+                    <section class="cont-logo">
+                        <img class="logo" src="{% static 'general/img/logo.png' %}">
+                        <label class="text-logo">HEALING</label>
+                    </section>
+                    <hr>
+                    <h2 class="fonte-destaque1 mb-3">{% trans 'Sign Up' %}</h2>
+                    {% include 'partials/messages.html' %}
+                    {% crispy register_form register_form.helper %}
+                </div>
+
+            </div>
+            <div class="col-md bg-main d-flex justify-content-center align-items-center">
+                <img src="{% static 'accounts/img/ilustration.png' %}" alt="">
+            </div>
+        </div>
+    </div>
+{% endblock body %}

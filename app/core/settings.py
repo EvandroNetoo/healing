@@ -72,10 +72,15 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': os.getenv('DB_ENGINE', 'django.db.backends.sqlite3'),
+        'NAME': os.getenv('POSTGRES_DB', 'set-envirioment-variables'),
+        'USER': os.getenv('POSTGRES_USER', 'set-envirioment-variables'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD', 'set-envirioment-variables'),
+        'HOST': os.getenv('POSTGRES_HOST', 'set-envirioment-variables'),
+        'PORT': os.getenv('POSTGRES_PORT', 'set-envirioment-variables'),
     }
 }
+
 
 
 # Internationalization

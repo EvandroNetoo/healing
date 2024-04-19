@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'doctor/css/open_schedule.css' %}">
+    <link rel="stylesheet" href="{% static 'accounts/css/accounts.css' %}">
+    <link rel="stylesheet" href="{% static 'doctor/css/doctor_register.css' %}">
+    <link rel="stylesheet" href="{% static 'patient/css/home.css' %}">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+{% endblock head %}
+
+
+{% block body %}
+
+    <br>
+    <br>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+
+                <p style="font-size: 25px" class="p-bold">
+                    {% trans 'Hello,' %} <span class="color-dark">{{ request.user.username }}.</span>
+                </p>
+
+                <form action="{% url 'home' %}" method="GET">
+                    <input type="text"
+                           class="form-control shadow-main-color"
+                           placeholder="{% trans 'Search for professionals ...' %}"
+                           name="doctor">
+                    <br>
+
+                    <div class="especialidades">
+                        {% for specialty in specialties %}
+                            <input type="checkbox" name="specialties" value="{{ specialty.id }}">
+                            <span class="badge bg-secondary">{{ specialty }}</span>
+                        {% endfor %}
+                    </div>
+                    <br>
+                    <input type="submit"
+                           value="{% trans 'filter' %}"
+                           class="btn btn-success btn-dark-color">
+                </form>
+
+                <hr>
+
+                <div class="list-medicos">
+
+                    {% for doctor in doctors %}
+                        <div class="card-medicos shadow-main-color">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <img src="{{ doctor.photo.url }}" class="foto-perfil-card" alt="">
+                                </div>
+                                <div class="col-md">
+                                    <p style="font-size: 20px" class="p-bold">
+                                        {% trans 'Dr.' %} {{ doctor.name }} <i class="bi bi-patch-check-fill icon-main"></i>
+                                    </p>
+                                    <p>{{ doctor.specialty }} | {{ doctor.description }}</p>
+                                </div>
+                            </div>
+                            <p>
+                                <i class="bi bi-map icon-main"></i>&nbsp&nbsp{{ doctor.street }}, {{ doctor.number }}.
+                            </p>
+                            <p>
+                                <i class="bi bi-calendar2-week icon-main"></i>&nbsp&nbsp{% trans 'Next date:' %}
+                                {% if doctor.next_schedule %}
+                                    {{ doctor.next_schedule }}
+                                {% else %}
+                                    {% trans 'Awaiting a date.' %}
+                                {% endif %}
+                            </p>
+
+                            <a href="{% url 'choose_schedule' doctor.id %}"
+                               class="btn btn-success btn-dark-color">{% trans 'Schedule' %}</a>
+                        </div>
+                        <br>
+                    {% endfor %}
+
+                </div>
+
+            </div>
+            <div class="col-md-4">
+                <p style="font-size: 25px" class="p-bold">{% trans 'Reminders' %}</p>
+
+                <p class="bg-main-lembrete">
+                    <span class="p-bold"><i class="bi bi-exclamation-triangle-fill icon-differential"></i>&nbsp&nbsp{% trans 'Appointment with Pedro Sampario in 7 days.' %}</span>
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}

@@ -8,6 +8,9 @@ db.sqlite3
 !media/defaults
 /static/*
 !/static/.gitkeep
+/dotenv_files/*.env
+!/dotenv_files/example.env
+
 
 # Backup files # 
 *.bak 

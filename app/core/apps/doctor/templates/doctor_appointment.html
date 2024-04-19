@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'doctor/css/open_schedule.css' %}">
+    <link rel="stylesheet" href="{% static 'accounts/css/accounts.css' %}">
+    <link rel="stylesheet" href="{% static 'doctor/css/doctor_register.css' %}">
+    <link rel="stylesheet" href="{% static 'patient/css/home.css' %}">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+{% endblock head %}
+
+
+{% block body %}
+
+    <br>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                {% if appointment.status == 'C' %}
+                    <div class="alert alert-danger" role="alert">{% trans 'Appointment canceled' %}</div>
+                {% elif appointment.status == 'F' %}
+                    <div class="alert alert-success" role="alert">{% trans 'Appointment Finished' %}</div>
+                {% elif appointment.status == 'I' %}
+                    <div class="alert alert-primary" role="alert">
+                        {% trans 'Consultation initiated, access the link immediately!' %}
+                        <br>
+                        <a href="{% if appointment.link %}{{ appointment.link }}{% endif %}"
+                           target="_blank">
+                            {% if appointment.link %}{{ appointment.link }}{% endif %}
+                        </a>
+                    </div>
+                {% endif %}
+
+                {% include 'partials/messages.html' %}
+
+                <div class="row">
+                    <div class="col-md">
+                        <p style="font-size: 20px" class="p-bold">
+                            {% trans 'Patient' %} {{ appointment.patient.username }} <i class="bi bi-patch-check-fill icon-main"></i>
+                        </p>
+                        <p>{{ dado_medico.descricao }}</p>
+                        <p class="p-bold">{{ appointment.opened_date.date }}</p>
+                    </div>
+                </div>
+                <hr>
+                <br>
+                <div class="row">
+                    <div class="col-md">
+
+                        <p>
+                            <i class="color-dark bi bi-check-circle-fill"></i> {% trans 'Appointment scheduled' %}
+                        </p>
+                    </div>
+                    <div class="col-md">
+                        <p>
+                            <i class="{% if appointment.status == 'F' %}color-dark{% endif %} bi bi-check-circle-fill"></i> {% trans 'Appointment done' %}
+                        </p>
+                    </div>
+                    <div class="col-md">
+                        <p>
+                            <i class="bi bi-check-circle-fill"></i> {% trans 'Appointment rated' %}
+                        </p>
+                    </div>
+                </div>
+                <hr>
+                <h3 class="p-bold">{% trans 'Consultation details' %}</h3>
+                <p style="font-size:20px">
+                    <i class="bi bi-calendar3 color-dark"></i>&nbsp {{ appointment.opened.date }}
+                </p>
+                <a style="cursor: auto;" class="btn btn-dark-color-outline btn-lg">{% trans 'Add to your calendar!' %}</a>
+                <hr>
+                <h3 class="p-bold">{% trans 'How to access?' %}</h3>
+                <p>{% trans 'Add the Google Meet link to start the consultation' %}</p>
+                <form action="{% url 'doctor_appointment' appointment.id %}" method="POST">
+                    {% csrf_token %}
+                    <input type="text"
+                           name="link"
+                           class="form-control shadow-main-color"
+                           id=""
+                           placeholder="{% trans 'Link' %}"
+                           value="{% if appointment.link %}{{ appointment.link }}{% endif %}">
+                    <br>
+                    <input type="submit"
+                           class="btn btn-success btn-dark-color btn-lg"
+                           value="{% trans 'Save' %}">
+                </form>
+
+
+                <hr>
+
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
+            <div class="col-md">
+                <h3 class="p-bold">{% trans 'Patient Documents' %}</h3>
+                <form action="{% url 'add_document' appointment.id %}"
+                      method="POST"
+                      enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="text"
+                           name="titulo"
+                           class="form-control"
+                           placeholder="{% trans 'Title' %}">
+                    <br>
+                    <input type="file" name="documento" class="form-control">
+                    <br>
+                    <input type="submit" class="btn btn-dark-color-outline btn-lg" value="+">
+                </form>
+                <hr>
+
+                {% for document in documents %}
+                    <a href="{{ document.document.url }}"
+                       target="_blank"
+                       class="link documentos"><i class="bi bi-file-arrow-down"></i> {{ document.title }}</a>
+                {% endfor %}
+
+                <br>
+
+                <hr>
+                <a href="" class="btn btn-primary">{% trans 'Finish consultation' %}</a>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock body %}

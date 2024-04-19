@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+
+    {% trans 'Open Schedule' %}
+{% endblock title %}
+
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'doctor/css/open_schedule.css' %}">
+    <link rel="stylesheet" href="{% static 'doctor/css/doctor_register.css' %}">
+    <link rel="stylesheet" href="{% static 'accounts/css/accounts.css' %}">
+{% endblock head %}
+
+
+{% block body %}
+    <div class="container">
+
+        <br>
+        <br>
+
+        <div class="row">
+            <div class="col-md-8">
+
+                <img src="{{ user.doctor_data.photo.url }}" class="foto-perfil" alt="">
+                <label style="margin-left: 30px; font-size: 25px" class="p-bold">
+                    {% trans 'Hello,' %} <span class="color-dark">{{ user.doctor_data.name }}</span>
+                </label>
+
+                <br>
+                {% include 'partials/messages.html' %}
+                <br>
+                <p style="font-size: 25px" class="p-bold">{% trans 'Open appointment schedule.' %}</p>
+                <hr>
+
+                {% crispy open_schedule_form open_schedule_form.helper %}
+
+            </div>
+            <div class="col-md-4">
+                <p style="font-size: 25px" class="p-bold">{% trans 'Your schedules' %}:</p>
+                <ul class="list-group">
+                    {% for date in opened_dates %}<li class="list-group-item">{{ date }}</li>{% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}
